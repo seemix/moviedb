@@ -1,0 +1,22 @@
+.details-wrap {
+  display: flex;
+  justify-content: center;
+}
+.details-container {
+  display: flex;
+  max-width: 1000px;
+  gap: 30px;
+}
+.details-small {
+  gap: 30px;
+  justify-content: space-evenly;
+}
+.back_button {
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 14px;
+  border: 1px solid;
+  margin: 0 auto;
+}

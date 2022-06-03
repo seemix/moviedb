@@ -1,0 +1,36 @@
+<div *ngIf="movie" class="details-wrap">
+  <div><img src="https://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" width="1000" alt="img"/></div>
+</div>
+<div class="details-wrap">
+  <div class="details-container">
+    <div>
+       <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" width="320" alt="img"/>
+      <button class="back_button" (click)=openDetails()>open full image</button>
+    </div>
+    <div>
+      <div><h1>{{movie.title}}</h1></div>
+      <div><h2>Rating: {{movie.vote_average}}</h2></div>
+      <div><h3>Homepage: <a href="{{movie.homepage}}" target="_blank">{{movie.homepage}}</a></h3></div>
+      <div>{{movie.overview}}<br><br></div>
+      <div class="details-wrap details-small">
+        <div>
+          <h2>Genres:</h2>
+          <div *ngFor="let genre of movie.genres">{{ genre.name}}</div>
+        </div>
+        <div>
+          <h2>Release date:</h2>
+          {{movie.release_date | date}}
+        </div>
+        <div>
+          <h2>Tagline:</h2>
+          {{movie.tagline}}
+        </div>
+        <div>
+          <h2>Budget:</h2>
+          {{movie.budget | currency}}
+        </div>
+      </div>
+      <button class="back_button" (click)="goBack()">back to previous page</button>
+    </div>
+  </div>
+</div>

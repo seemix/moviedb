@@ -1,0 +1,17 @@
+<!--<hr>-->
+<!--{{movie.original_title}} &#45;&#45; {{movie.title}} &#45;&#45; {{movie.vote_average}}-->
+
+<div class="card">
+  <div class="img_wrapper">
+    <a routerLink='movie-details/{{movie.id.toString()}}'>
+      <img class="zoom_im" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" alt={{movie.title}}
+           width='280'/>
+    </a>
+  </div>
+  <h4>{{movie.title}}</h4>.
+
+  <h5>{{movie.release_date | date }}</h5>
+  {{movie.id}}
+
+</div>
+
