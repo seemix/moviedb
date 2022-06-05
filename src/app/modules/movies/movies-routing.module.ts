@@ -1,23 +1,24 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {MoviesComponent} from "./components/movies/movies.component";
+import {MoviesComponent} from "./components";
 import {MovieResolveService} from "./services/resolvers";
-import {MovieComponent} from "./components/movie/movie.component";
+import {MovieComponent} from "./components";
 import {MovieDetailsComponent} from "../../components/movie-details/movie-details.component";
 import {MovieDetailsResolverService} from "../../services";
 
 
 const routes: Routes = [
-  {path: ':currentPage', component:MoviesComponent, resolve: {data: MovieResolveService}},
+  {path: ':currentPage', component: MoviesComponent, resolve: {data: MovieResolveService}},
   {
     path: '', component: MoviesComponent, resolve: {data: MovieResolveService}, children: [
       {path: 'movie/:id', component: MovieComponent}
     ],
   },
-   {path: 'movie-details/:id', component: MovieDetailsComponent, resolve: {data: MovieDetailsResolverService}},
-   {path: ':page/movie-details/:id', component: MovieDetailsComponent, resolve: {data: MovieDetailsResolverService}}
- ];
+  {path: 'movie-details/:id', component: MovieDetailsComponent, resolve: {data: MovieDetailsResolverService}},
+  {path: ':page/movie-details/:id', component: MovieDetailsComponent, resolve: {data: MovieDetailsResolverService}},
+  {path: 'genres/:genreId', component: MoviesComponent, resolve: {data: MovieResolveService}}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

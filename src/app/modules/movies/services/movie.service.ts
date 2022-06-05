@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, delay} from "rxjs";
+import {Observable} from "rxjs";
 
 import {urls} from "../../../constants";
 import {IPage} from "../../../models";
@@ -14,10 +14,14 @@ export class MovieService {
   }
 
   getALl(): Observable<IPage> {
-    return this.httpClient.get<IPage>(`${urls.movies}`).pipe(delay(800));
+    return this.httpClient.get<IPage>(`${urls.movies}`)
+
   }
 
-  getPage(page:string): Observable<IPage> {
+  getPage(page:number): Observable<IPage> {
     return this.httpClient.get<IPage>(`${urls.movies}&page=${page}`);
+  }
+  getByGenre(genreId:string): Observable<IPage> {
+    return this.httpClient.get<IPage>(urls.byGenre)
   }
 }

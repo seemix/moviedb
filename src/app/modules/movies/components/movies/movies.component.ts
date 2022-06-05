@@ -4,7 +4,8 @@ import {MovieService} from "../../services/movie.service";
 import {IPage} from "../../../../models";
 import {IMovie} from "../../../../models";
 import {ActivatedRoute} from "@angular/router";
-import {maxPages} from "../../../../constants";
+import {StorageService} from "../../../../services/storage.service";
+import {GenreService} from "../../../../services";
 
 @Component({
   selector: 'app-movies',
@@ -15,17 +16,37 @@ export class MoviesComponent implements OnInit {
   result: IPage;
   movies: IMovie[];
 
-  constructor(private movieService: MovieService, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private movieService: MovieService,
+    private activatedRoute: ActivatedRoute,
+    private storageService: StorageService,
+    private genreService: GenreService
+  ) {
   }
 
   ngOnInit(): void {
 
-    this.activatedRoute.params.subscribe(({currentPage}) => {
-      if(currentPage < 1 || currentPage > maxPages) currentPage = '1';
-      this.movieService.getPage(currentPage).subscribe(value => {
-        this.result = value;
-        this.movies = this.result.results;
-      });
+    this.activatedRoute.queryParams.subscribe(({page, genre}) => {
+      if (genre) {
+        if (!page) page = 1;
+        this.storageService.currentGenre.next(genre);
+        console.log(genre);
+        this.storageService.currentPage.next(page);
+        this.genreService.getById(genre, page).subscribe(data => {
+          this.result = data;
+          this.movies = this.result.results;
+        })
+      } else {
+        if (!page) page = 1;
+        this.movieService.getPage(page).subscribe(data => {
+
+          this.result = data;
+          this.movies = this.result.results;
+        })
+      }
     })
+
+
   }
+
 }

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviesComponent } from './components/movies/movies.component';
+import { MoviesComponent } from './components';
 import {MoviesRoutingModule} from "./movies-routing.module";
-import { MovieComponent } from './components/movie/movie.component';
-import { PageComponent } from './components/page/page.component';
+import { MovieComponent } from './components';
+import { PageComponent } from './components';
+import { PaginationComponent } from './components';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { PageComponent } from './components/page/page.component';
     MoviesComponent,
     MovieComponent,
     PageComponent,
+    PaginationComponent,
   ],
 
   imports: [

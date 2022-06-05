@@ -1,27 +1,14 @@
-<!--<mat-toolbar color="primary">-->
-<!--  <mat-toolbar-row>-->
-<!--    <a routerLink="/" routerLinkActive="active">-->
-<!--      <button mat-flat-button color="primary">Home</button>-->
-<!--    </a>-->
-<!--    <button mat-flat-button color="primary">Movies</button>-->
-<!--    <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">Genres</button>-->
-<!--    <mat-menu #menu="matMenu">-->
-<!--      <button color="primary "mat-menu-item>Item 1</button>-->
-<!--      <button mat-menu-item>Item 2</button>-->
-<!--    </mat-menu>-->
-<!--    <mat-slide-toggle color="warn"><small>Dark mode</small></mat-slide-toggle>-->
-<!--  </mat-toolbar-row>-->
-<!--</mat-toolbar>-->
 <div class="header">
     <div class="navbar">
       <a routerLink="home" routerLinkActive="active">Home</a>
       <a routerLink="movies" routerLinkActive="active">Movies</a>
-      <div class="dropdown">
+      <div *ngIf="genres" class="dropdown">
         <button class="dropbtn">Genres
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a *ngFor="let genre of genres" >{{genre.name}}</a>
+<!--          <a *ngFor="let genre of genres" routerLink="movies?genre={{genre.id}}">{{genre.name}}</a>-->
+          <a *ngFor="let genre of genres" (click)="selectGenre(genre.id)">{{genre.name}}</a>
         </div>
       </div>
   </div>
