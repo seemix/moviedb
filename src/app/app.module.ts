@@ -16,6 +16,7 @@ import {GenreResolverService} from "./services";
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { PopupComponent } from './components/popup/popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MainLayoutComponent,
     MenuComponent,
     MovieDetailsComponent,
-    PopupComponent
+    PopupComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,8 @@ import {MatDialogModule} from "@angular/material/dialog";
   ],
   providers: [
     GenreResolverService
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })
