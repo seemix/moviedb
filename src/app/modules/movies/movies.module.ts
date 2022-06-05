@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesComponent } from './components/movies/movies.component';
 import {MoviesRoutingModule} from "./movies-routing.module";
 import { MovieComponent } from './components/movie/movie.component';
-import {AppModule} from "../../app.module";
+// import {AppModule} from "../../app.module";
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import {AppModule} from "../../app.module";
   imports: [
     CommonModule,
     MoviesRoutingModule,
-    AppModule
+    // AppModule
   ],
 
 })

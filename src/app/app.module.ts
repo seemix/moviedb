@@ -16,7 +16,6 @@ import {GenreResolverService} from "./services";
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { PopupComponent } from './components/popup/popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MenuComponent,
     MovieDetailsComponent,
     PopupComponent,
-    PaginationComponent
   ],
   imports: [
     BrowserModule,
