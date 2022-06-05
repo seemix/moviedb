@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+
 import {MovieDetailsService} from "../../services";
 import {ActivatedRoute} from "@angular/router";
 import {IGenre, IMovieDetailed} from "../../models";
@@ -25,6 +26,7 @@ export class MovieDetailsComponent implements OnInit {
     this.activatedRoute.params.subscribe(({id}) => {
       this.movieDetailsService.getById(id).subscribe(value => this.movie = value);
     })
+
   }
 
   openDetails() {

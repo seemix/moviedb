@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {MoviesComponent} from "./components";
+import {MoviesComponent, MovieComponent} from "./components";
 import {MovieResolveService} from "./services/resolvers";
-import {MovieComponent} from "./components";
 import {MovieDetailsComponent} from "../../components/movie-details/movie-details.component";
 import {MovieDetailsResolverService} from "../../services";
 

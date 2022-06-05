@@ -1,14 +1,16 @@
 <div class="header">
     <div class="navbar">
-      <a routerLink="home" routerLinkActive="active">Home</a>
-      <a routerLink="movies" routerLinkActive="active">Movies</a>
+      <a routerLink="home">Home</a>
+      <a routerLink="movies">All Movies</a>
       <div *ngIf="genres" class="dropdown">
-        <button class="dropbtn">Genres
-          <i class="fa fa-caret-down"></i>
-        </button>
+          <button class="dropbtn">
+           By Genre
+            <i class="fa fa-caret-down"></i>
+          </button>
+
         <div class="dropdown-content">
-<!--          <a *ngFor="let genre of genres" routerLink="movies?genre={{genre.id}}">{{genre.name}}</a>-->
           <a *ngFor="let genre of genres" (click)="selectGenre(genre.id)">{{genre.name}}</a>
+<!--          <a *ngFor="let genre of genres" routerLink="/movies?genre={{genre.id}}">{{genre.name}}</a>-->
         </div>
       </div>
   </div>

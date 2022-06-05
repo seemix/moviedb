@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   selectGenre(id: number) {
 
     const queryParams: Params={genre: id}
-      this.router.navigate([],
+      this.router.navigate(['\movies'],
         {queryParams}
 
     )
