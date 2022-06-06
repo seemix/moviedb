@@ -22,7 +22,7 @@ export class PaginationComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(({page, genre}) => {
       if(!page) {
         this.storageService.currentPage.next(1);}
-      else {this.storageService.currentPage.next(page)};
+      else this.storageService.currentPage.next(page);
       if(!genre) this.storageService.currentGenre.next(null);
     })
     this.storageService.currentGenre.subscribe(genre => this.currentGenre = genre);
