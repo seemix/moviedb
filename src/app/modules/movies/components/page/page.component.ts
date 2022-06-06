@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StorageService} from "../../../../services/storage.service";
+import {StorageService} from "../../../../services";
 import {Router} from "@angular/router";
 
 @Component({
@@ -22,13 +22,10 @@ export class PageComponent implements OnInit {
   }
 
   changePage(page: number, genre: number | null) {
-
     this.genre = genre;
     this.router.navigate([],
       {queryParams: {genre, page}}).then(() => {
       this.storageService.currentPage.next(page);
-
     })
-
   }
 }

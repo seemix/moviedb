@@ -4,7 +4,7 @@ import {MovieService} from "../../services/movie.service";
 import {IPage} from "../../../../models";
 import {IMovie} from "../../../../models";
 import {ActivatedRoute} from "@angular/router";
-import {StorageService} from "../../../../services/storage.service";
+import {StorageService} from "../../../../services";
 import {GenreService} from "../../../../services";
 
 @Component({
@@ -15,6 +15,7 @@ import {GenreService} from "../../../../services";
 export class MoviesComponent implements OnInit {
   result: IPage;
   movies: IMovie[];
+  currentGenre: number | null;
 
   constructor(
     private movieService: MovieService,
@@ -26,6 +27,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.storageService.currentGenre.subscribe(value => this.currentGenre = value);
     this.activatedRoute.queryParams.subscribe(({page, genre}) => {
       if (genre) {
         if (!page) page = 1;
@@ -45,8 +47,5 @@ export class MoviesComponent implements OnInit {
         })
       }
     })
-
-
   }
-
 }

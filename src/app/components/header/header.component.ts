@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GenreService} from "../../services";
 import {IGenre} from "../../models";
-import {StorageService} from "../../services/storage.service";
+import {StorageService} from "../../services";
 import {Params, Router} from "@angular/router";
 
 @Component({

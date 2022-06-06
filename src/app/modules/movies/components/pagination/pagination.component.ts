@@ -1,7 +1,8 @@
+import {ActivatedRoute, Router} from "@angular/router";
 import {Component, OnInit} from '@angular/core';
-import {StorageService} from "../../../../services/storage.service";
+
+import {StorageService} from "../../../../services";
 import {maxPages} from "../../../../constants";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pagination',
@@ -14,10 +15,16 @@ export class PaginationComponent implements OnInit {
   pagesArr: number[];
   maxPages: string = maxPages;
 
-  constructor(private storageService: StorageService, private router: Router,) {
+  constructor(private storageService: StorageService, private router: Router, private activatedRoute:ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(({page, genre}) => {
+      if(!page) {
+        this.storageService.currentPage.next(1);}
+      else {this.storageService.currentPage.next(page)};
+      if(!genre) this.storageService.currentGenre.next(null);
+    })
     this.storageService.currentGenre.subscribe(genre => this.currentGenre = genre);
     this.storageService.currentPage.subscribe(value => {
       let offset = 1;
@@ -28,22 +35,22 @@ export class PaginationComponent implements OnInit {
       this.currentPage = value;
 
     });
-
   }
 
   previousPage() {
-
     this.router.navigate([],
-      {queryParams: {page: this.currentPage - 1}}).then(() => {
-      this.storageService.currentPage.next(this.currentPage - 1);
+      {queryParams: {genre: this.currentGenre, page: +this.currentPage-1}}).then(() => {
+      this.storageService.currentPage.next(+this.currentPage);
     })
   }
 
+
   nextPage() {
     this.router.navigate([],
-      {queryParams: {page: this.currentPage + 1}}).then(() => {
-      this.storageService.currentPage.next(this.currentPage + 1);
+      {queryParams: {genre: this.currentGenre, page: +this.currentPage+1}}).then(() => {
+      console.log(this.currentGenre);
+      console.log(this.currentPage);
+      this.storageService.currentPage.next(+this.currentPage);
     })
-
   }
 }
