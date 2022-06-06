@@ -15,8 +15,8 @@ const routes: Routes = [
     ],
   },
   {path: 'movie-details/:id', component: MovieDetailsComponent, resolve: {data: MovieDetailsResolverService}},
-  {path: ':page/movie-details/:id', component: MovieDetailsComponent, resolve: {data: MovieDetailsResolverService}},
-  {path: 'genres/:genreId', component: MoviesComponent, resolve: {data: MovieResolveService}}
+  // {path: ':page/movie-details/:id', component: MovieDetailsComponent, resolve: {data: MovieDetailsResolverService}},
+  // {path: 'genres/:genreId', component: MoviesComponent, resolve: {data: MovieResolveService}}
 ];
 
 @NgModule({

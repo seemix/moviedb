@@ -1,5 +1,11 @@
 <div class="buttons_wrap">
- <button (click)="previousPage()" *ngIf="currentPage>1">Prev</button>
+
+  <div *ngIf="currentPage>1">
+    <button (click)="previousPage()">Prev</button>
+  </div>
 <app-page *ngFor="let page of pagesArr" [page]="page" [genre]="currentGenre"></app-page>
   <button (click)=nextPage() *ngIf="currentPage<+maxPages">Next</button>
 </div>
+
+
+

@@ -1,11 +1,12 @@
+<h2>Movie Details</h2>
 <div *ngIf="movie" class="details-wrap">
   <div><img src="https://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" width="1000" alt="img"/></div>
 </div>
 <div class="details-wrap">
   <div class="details-container">
     <div>
-       <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" width="320" alt="img"/>
-      <button class="back_button" (click)=openDetails()>open full image</button>
+      <a class="fullIm" (click)=openDetails()><img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" width="320" alt="img"/></a>
+<!--      <button class="back_button" (click)=openDetails()>open full image</button>-->
     </div>
     <div>
       <div><h1>{{movie.title}}</h1></div>

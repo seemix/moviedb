@@ -11,25 +11,24 @@ import {Params, Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
   genres: IGenre[];
-  constructor(private genreService:GenreService,
-              private storageService:StorageService,
-              private router:Router) {
+
+  constructor(private genreService: GenreService,
+              private storageService: StorageService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.genreService.getAll().subscribe(value =>  {
+    this.genreService.getAll().subscribe(value => {
       this.genres = value.genres;
       this.storageService.genresArr.next(value.genres);
     });
-
   }
 
   selectGenre(id: number) {
 
-    const queryParams: Params={genre: id}
-      this.router.navigate(['\movies'],
-        {queryParams}
-
+    const queryParams: Params = {genre: id}
+    this.router.navigate(['\movies'],
+      {queryParams}
     )
   }
 }

@@ -7,10 +7,8 @@
            By Genre
             <i class="fa fa-caret-down"></i>
           </button>
-
         <div class="dropdown-content">
           <a *ngFor="let genre of genres" (click)="selectGenre(genre.id)">{{genre.name}}</a>
-<!--          <a *ngFor="let genre of genres" routerLink="/movies?genre={{genre.id}}">{{genre.name}}</a>-->
         </div>
       </div>
   </div>

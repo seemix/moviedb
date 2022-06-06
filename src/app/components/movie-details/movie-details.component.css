@@ -15,8 +15,11 @@
   padding: 5px 15px;
   text-align: center;
   text-decoration: none;
-  display: inline;
+  /*display: inline;*/
   font-size: 14px;
   border: 1px solid;
-  margin: 0 auto;
+  margin: 20px 0
+}
+.fullIm {
+  cursor: pointer;
 }

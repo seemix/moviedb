@@ -1,9 +1,11 @@
 .cardsContainer{
   display: flex;
   justify-content: center;
-  width: 95%;
+  width: 100%;
 }
 .wrapper {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
 }
